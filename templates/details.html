@@ -26,15 +26,13 @@
 <body>
     <div class = "con">
     
-    <form action = "{{url_for('showSeats',username_form = username_form)}}" method = "POST">
-                <h3>Select Theatre :</h3>
-                <span style="width:50%;padding:1%;"> <select id = "location" name = 'theatre_name' class = "form-control drops">
-                        {% for theatre in theaterList%}
-                 <option id = "loc">{{theatre}}</option>
-                 {% endfor %}
+                <h3>Select Doctor :</h3>
+                <span style="width:50%;padding:1%;"> <select id = "id" name = 'GivenName' class = "form-control drops">
+                 <option id = "loc">Manish Khandelwaal</option>
+                 <option id="loc">Ransith Mudduwa</option>
                 </select></span>
                 <br>
-                <button type="submit" name="seatsBooking" class = "buttonClass">Book Seats</button>  
+                <a href="payment.html" class="btn btn-primary btn-lg, buttonClass" role="button">Book</a>   
             </form>
         </div>
     </body>

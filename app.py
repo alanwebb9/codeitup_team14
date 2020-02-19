@@ -24,19 +24,19 @@ pub_key = 'pk_test_wLuj1f9wp0kvPH8emMGddGFL00Jojo7zG5'  #to identify the account
 secret_key = 'sk_test_iuwg8PsZ9Egz4dwMbefnjuul00tC1UT6s4' #same as above
 stripe.api_key = secret_key
 mail = Mail(app)
-class MeetDoc:
-    @app.route('/MeetDoc', methods = ['POST','GET']) 
-    def MeetDoc(self):
-        doctortype = []
-        dbcon=dbManager.databaseConnection()
-        cur=dbcon.cursor()
-        query = " SELECT * FROM `table 2` WHERE JobTitle=%s"
-        cur.execute(query_string, (JobTitle)
-        data = cur.fetchall()
-        for row in data:
-            if row[0] not in doctortype:
-                doctortype.append(row[0])
-        return render_template('firstPage.html',doctortype = doctortype)
+# class MeetDoc:
+#     @app.route('/MeetDoc', methods = ['POST','GET']) 
+#     def MeetDoc(self):
+#         doctortype = []
+#         dbcon=dbManager.databaseConnection()
+#         cur=dbcon.cursor()
+#         query = " SELECT * FROM `table 2` WHERE JobTitle=%s"
+#         cur.execute(query_string, (JobTitle)
+#     #    data = cur.fetchall()
+#     #     for row in data:
+#     #         if row[0] not in doctortype:
+#     #             doctortype.append(row[0])
+#     #     return render_template('firstPage.html',doctortype = doctortype)
 
 class Pharmacy:
     @app.route('/Pharmacy', methods = ['POST','GET']) 
@@ -81,9 +81,9 @@ class Booking:
                 data6 = cur.fetchall()
                 for row in data6:
                     docname = row[0]
-                return render_template("invoice.html",id = id)
+                return render_template("details.html",id = id)
         else:
-            return render_template("firstPage.html")
+            return render_template("index.html")
 
 class Payment():
     @app.route("/payment",methods =['POST','GET'])
@@ -117,3 +117,8 @@ def send_mail():
     msg.body = "Your doctor booking is confirmed."
     mail.send(msg)
     return render_template("success.html")
+
+    
+if __name__ == "__main__":
+    app.secret_key = os.urandom(24)    
+    app.run(debug=True,host='127.0.0.1', port=5000, threaded=True)
