@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <title>First Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style type="text/css">
-    #my_centered_buttons { display: flex; justify-content: center; padding-top: 250px; }
-    </style>
-</head>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+                <style>
+                .drops{
+                        width : 20%
+                }
+                .con{
+                        margin: 25px 50px;
+                }
+                .buttonClass{
+                        background-color: #555555;
+                        border: none;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                        display: block;
+                        width: 20%;
+                }
+                </style>
+        </head>
 <body>
-    <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">Dentist</a>
-        <a href="#" class="list-group-item list-group-item-action">General Practitioner</a>
-        <a href="#" class="list-group-item list-group-item-action">Diabetes specialist</a>
-        <a href="#" class="list-group-item list-group-item-action disabled">Nurse</a>
-      </div>
+<div class = "con">
+    <form action = "{{url_for('MeetDoc')}}" method = "post">
+        <button type="submit" name="Dentist" class = "buttonClass">Dentist</button> 
+            <!-- <span style="width:50%;padding:1%;"> <select id = "project" name = 'seatCat' class = "form-control drops">
+                    <option id = "Rec">Recliner</option>
+                    <option id = "Sofa">Sofa</option>
+                   </select></span> -->  
+        <button type="submit" name="General Practitioner" class = "buttonClass">General Practitioner</button>
+        <button type="submit" name="Diabetes Specialist" class = "buttonClass">Diabetes Specialist</button>
+        <button type="submit" name="Healthcare Assistant" class = "buttonClass">Healthcare Assistant</button>
+        </form>
+        </div>
+
     <div class="a2a_kit a2a_kit_size_32 a2a_default_style" id="my_centered_buttons">
         <a class="a2a_button_facebook"></a>
         <a class="a2a_button_twitter"></a>
