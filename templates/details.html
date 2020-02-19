@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <style>
+        .drops{
+                width : 20%
+        }
+        .con{
+                margin: 25px 50px;
+        }
+        .buttonClass{
+                background-color: #555555;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+        }
+        </style>
+</head>
+<body>
+    <div class = "con">
+    
+    <form action = "{{url_for('showSeats',username_form = username_form)}}" method = "POST">
+                <h3>Select Theatre :</h3>
+                <span style="width:50%;padding:1%;"> <select id = "location" name = 'theatre_name' class = "form-control drops">
+                        {% for theatre in theaterList%}
+                 <option id = "loc">{{theatre}}</option>
+                 {% endfor %}
+                </select></span>
+                <br>
+                <button type="submit" name="seatsBooking" class = "buttonClass">Book Seats</button>  
+            </form>
+        </div>
+    </body>
+    </html>

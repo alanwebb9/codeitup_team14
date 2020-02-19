@@ -1,17 +1,19 @@
-
-<div id="cover">
-    <form method="get" action="">
-      <div class="tb">
-        <div class="td"><input type="text" placeholder="Search" required></div>
-        <div class="td" id="s-cover">
-          <button type="submit">
-            <div id="s-circle"></div>
-            <head>
-                <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
-            </head>
-            <span></span>
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
+<!DOCTYPE html>
+<head>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+                </head>
+                <body>
+                <form action = "{{url_for('Pharmacy')}}", method = "post">
+                <br>
+                   <h3>Select Location :</h3>
+                   <span style="width:50%;padding:1%; margin: 25px 50px;"> <select id = "location" name = 'location_name' class = "form-control drops">
+                           {% for location in locationList%}
+                    <option id = "loc">{{location}}</option>
+                    {% endfor %}
+                   </select></span>
+                   <br>
+                   </form>
+                   <script async src="https://static.addtoany.com/menu/page.js"></script>
+                </body>
+                </html>

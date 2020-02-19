@@ -1,4 +1,4 @@
-from DBconnection import dbManager
+from db import dbManager
 from flask import Flask, session, render_template, request, session, g, redirect, url_for
 import os,stripe
 import mysql.connector
@@ -30,7 +30,8 @@ class MeetDoc:
         doctortype = []
         dbcon=dbManager.databaseConnection()
         cur=dbcon.cursor()
-        query = " "
+        query = " SELECT * FROM `table 2` WHERE JobTitle=%s"
+        cur.execute(query_string, (JobTitle)
         data = cur.fetchall()
         for row in data:
             if row[0] not in doctortype:
@@ -38,7 +39,7 @@ class MeetDoc:
         return render_template('firstPage.html',doctortype = doctortype)
 
 class Pharmacy:
-    @app.route('/showFirstPage', methods = ['POST','GET']) 
+    @app.route('/Pharmacy', methods = ['POST','GET']) 
     def Pharmacy(self):
         if request.method == "POST":
             pharmId  = request.form['pharmId']
@@ -54,7 +55,7 @@ class Pharmacy:
         return render_template('firstPage.html',pharmtype = pharmtype)
 
 class LabTest:
-    @app.route('/showFirstPage', methods = ['POST','GET']) 
+    @app.route('/LabTest', methods = ['POST','GET']) 
     def LabTest(self):
         test = []
         dbcon=dbManager.databaseConnection()
@@ -71,16 +72,16 @@ class Booking:
     def bookdoc():
         if g.user:
             if request.method == "POST":
-                date = request.form['date'] 
+                id = request.form['id'] 
                 #date = request.args.get('date') 
                 dbcon=dbManager.databaseConnection()
                 cur=dbcon.cursor()
-                query3=''
-                cur.execute(query3,[date])
+                query3=' SELECT * FROM `table 2` WHERE OrganisationId=%s'
+                cur.execute(query3,[id])
                 data6 = cur.fetchall()
                 for row in data6:
                     docname = row[0]
-                return render_template("invoice.html",date = date)
+                return render_template("invoice.html",id = id)
         else:
             return render_template("firstPage.html")
 
